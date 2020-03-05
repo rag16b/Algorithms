@@ -1,3 +1,4 @@
+#include <iostream>
 #include <stdio.h>
 using namespace std;
 
@@ -20,17 +21,23 @@ void insertionSort(int arr[], int size) {
             i = i - 1;
         }
         arr[i + 1] = key;
-        printArr(arr, size);
-        printf("\n");
+        //printArr(arr, size);
+        //printf("\n");
     }
 }
 
 int main() {
-    int temp[] = {10, 11, 9, 0, 5, 8, 13};
+    int size, num;
+    cin >> size;
+    int arr[size];
+    for (int i = 0; i < size; i++) {
+        cin >> num;
+        arr[i] = num;
+    }
 
-    printArr(temp, sizeof(temp)/sizeof(temp[0]));
-    printf("\n");
-    insertionSort(temp, sizeof(temp)/sizeof(temp[0]));
+    //printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
+    insertionSort(arr, sizeof(arr)/sizeof(arr[0]));
+    //printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
 
     return 0;
 }

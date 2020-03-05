@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+void printArr(int arr[], int size) {
+    printf("< ");
+    int i = 0;
+    for (i; i < size; i++) {
+        printf("%d ",arr[i]);
+    }
+    printf(">");
+}
+
+
+void quickSort(int arr[], int size) {
+    
+}
+
+int main() {
+    int size, num;
+    cin >> size;
+    int arr[size];
+    for (int i = 0; i < size; i++) {
+        cin >> num;
+        arr[i] = num;
+    }
+
+    printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
+    quickSort(arr, (sizeof(arr)/sizeof(arr[0])));
+    printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
+
+    return 0;
+}

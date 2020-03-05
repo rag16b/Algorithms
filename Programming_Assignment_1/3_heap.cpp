@@ -1,5 +1,7 @@
+#include <iostream>
 #include <stdio.h>
 #include <math.h>
+using namespace std;
 
 void printArr(int arr[], int size) {
     printf("< ");
@@ -50,11 +52,17 @@ void heapSort(int arr[], int size) {
 }
 
 int main() {
-    int temp[] = {10, 11, 9, 0, 5, 8, 13};
+    int size, num;
+    cin >> size;
+    int arr[size];
+    for (int i = 0; i < size; i++) {
+        cin >> num;
+        arr[i] = num;
+    }
 
-    printArr(temp, sizeof(temp)/sizeof(temp[0])); printf("\n");
-    heapSort(temp, (sizeof(temp)/sizeof(temp[0])));
-    printArr(temp, sizeof(temp)/sizeof(temp[0])); printf("\n");
+    //printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
+    heapSort(arr, (sizeof(arr)/sizeof(arr[0])));
+    //printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
 
     return 0;
 }
