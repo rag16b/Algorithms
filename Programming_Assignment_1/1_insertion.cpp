@@ -1,4 +1,5 @@
 #include <stdio.h>
+using namespace std;
 
 void printArr(int arr[], int size) {
     printf("< ");
@@ -6,7 +7,7 @@ void printArr(int arr[], int size) {
     for (i; i < size; i++) {
         printf("%d ",arr[i]);
     }
-    printf(">\n");
+    printf(">");
 }
 
 void insertionSort(int arr[], int size) {
@@ -20,6 +21,7 @@ void insertionSort(int arr[], int size) {
         }
         arr[i + 1] = key;
         printArr(arr, size);
+        printf("\n");
     }
 }
 
@@ -27,6 +29,7 @@ int main() {
     int temp[] = {10, 11, 9, 0, 5, 8, 13};
 
     printArr(temp, sizeof(temp)/sizeof(temp[0]));
+    printf("\n");
     insertionSort(temp, sizeof(temp)/sizeof(temp[0]));
 
     return 0;
