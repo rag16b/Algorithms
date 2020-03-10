@@ -48,9 +48,9 @@ int main() {
 
     // this array will hold the output of counting sort
     int arrOut[size];
-    printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
+    //printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
     countingSort(arr, arrOut, sizeof(arr)/sizeof(arr[0]), 65535);
-    printArr(arrOut, sizeof(arrOut)/sizeof(arrOut[0])); printf("\n");
+    //printArr(arrOut, sizeof(arrOut)/sizeof(arrOut[0])); printf("\n");
 
     return 0;
 }

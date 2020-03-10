@@ -11,8 +11,52 @@ void printArr(int arr[], int size) {
     printf(">");
 }
 
+// made a variation of counting sort to use in radixSort
+// *** note that I simply based it off of my countingSort algorithm from this assignment
+void countingSort(int arr[], int size, int divisor) {
+    // temp will be used for swapping
+    int temp[size], track[10];
+
+    // initializing both arrays to 0 all throughout 
+    for (int i = 0; i < size; i++)
+        temp[i] = 0;
+    for (int i = 0; i < 10; i++)
+        track[i] = 0;
+
+    // adding up instances of each digit
+    for (int i = 0; i < size; i++)
+        track[(arr[i]/divisor)%10]++;
+    // let track[i] contain the number of elements less than or equal to i
+    for (int i = 1; i < 10; i++)
+        track[i] = track[i] + track[i-1];
+    // build the array we will be using to swap with arr
+    for (int i = size - 1; i > -1; i--) {
+        temp[track[(arr[i]/divisor)%10] - 1] = arr[i];
+        track[(arr[i]/divisor)%10]--;
+    }
+    for (int i = 0; i < size; i++)
+        arr[i] = temp[i];
+}
+
 void radixSort(int arr[], int size) {
+    // asssuming we don't know that the largest possible number is 65535, we need to find the max number of digits
+    int max = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (max < arr[i])
+            max = arr[i];
+    }
+    // finding the maximum numnber of digits
+    int numDig = 0;
+    while (max > 0) {
+        numDig++;
+        max /= 10;
+    }
     
+    int digPicker = 1;
+    for (int i = 0; i < numDig; i++) {
+        countingSort(arr, size, digPicker);
+        digPicker *= 10;
+    }
 }
 
 int main() {
@@ -24,9 +68,9 @@ int main() {
         arr[i] = num;
     }
 
-    printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
+    //printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
     radixSort(arr, sizeof(arr)/sizeof(arr[0]));
-    printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
+    //printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
 
     return 0;
 }
