@@ -11,7 +11,7 @@ void printArr(int arr[], int size) {
     printf(">");
 }
 
-void radixSort() {
+void radixSort(int arr[], int size) {
     
 }
 
@@ -25,7 +25,7 @@ int main() {
     }
 
     printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
-    radixSort(arr, 0, sizeof(arr)/sizeof(arr[0]) - 1);
+    radixSort(arr, sizeof(arr)/sizeof(arr[0]));
     printArr(arr, sizeof(arr)/sizeof(arr[0])); printf("\n");
 
     return 0;
