@@ -3,6 +3,8 @@
 #include <vector>
 #include <sstream>
 #include <string>
+#include <iomanip>
+#include <sys/time.h>
 using namespace std;
 
 void printArr(float arr[], int size) {
@@ -58,9 +60,19 @@ int main() {
         arr[i] = num;
     }
 
+    struct timeval start, end;
+    gettimeofday(&start, NULL);
+    ios_base::sync_with_stdio(false);
+
     //printArr(arr, sizeof(arr)/sizeof(arr[0]));
     bucketSort(arr, sizeof(arr)/sizeof(arr[0]));
     //printArr(arr, sizeof(arr)/sizeof(arr[0]));
+
+    gettimeofday(&end, NULL);
+    double time;
+    time = (end.tv_sec - start.tv_sec) * 1e6;
+    time = (time + (end.tv_usec - start.tv_usec)) * 1e-6;
+    printf("%f\n", time);
 
     return 0;
 }

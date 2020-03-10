@@ -1,0 +1,14 @@
+How to run my code in Linprog:
+g++ 1_insertion
+
+** Note that all are run the same and you simply need to change the name of the given sort file.
+
+After that you would simply run:
+a.out < testing/10intArr.txt
+
+** Note that all test files are run the same and you simply need to change the name of the given test file.
+** Also note that the way my code parses test files in main is by taking in the first number of the file (which indicates the number of elements in that file). Then it uses that number to cin as many elements as necessary. Following the first "indicator" number, each element is sepereted by white space.
+** Note that any of the test files with "real" in the name will work only for bucket sort and bucket sort only works with those files as well.
+
+Please note that for much of this assignment, I referenced the GeeksForGeeks website to better understand how these algorithms worked and how to calculate execution times of functions and even how to plot.
+Unfortunately I did not have enough time to make graphs for all 7 sorts, only the first three.

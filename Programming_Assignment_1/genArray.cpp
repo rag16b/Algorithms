@@ -24,8 +24,10 @@ int main(){
 			intArr[i] = rand() % 65535 + 1;
 	}
 	else if (type == 2) {
-		for (int i = 0; i < size; i++)	// creates a random float, rounds up and casts to integer with *100 in order to ensure a precision of 2
-			floatArr[i] = (float)((int)((double)rand()/((double)RAND_MAX+1)*100 + .5)) / 100;
+		for (int i = 0; i < size; i++){	// creates a random float, rounds up and casts to integer with *100 in order to ensure a precision of 2
+			float temp = (float)((int)((double)rand()/((double)RAND_MAX+1)*100 + .5)) / 100;
+			floatArr[i] = (temp == 1 ? 0.99 : temp);
+		}
 	}
 	else {
 		cout << "Failed: incorrect type... Exiting..." << endl;
